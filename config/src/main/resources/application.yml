@@ -1,0 +1,23 @@
+server:
+  port: 8101
+  spring:
+    application:
+      name: config
+      profiles:
+        avtive: dev
+        cloud:
+          config:
+            server:
+              git:
+                uri: https://github.com/wcy99123456/new.git #配置github远程仓库路径
+                  username: wcy99123456
+                    password: wangchunyang123456
+                      label: master
+                      eureka:
+                        instance:
+                          hostname: ${spring.cloud.client.ipAddress}
+                       instance-is: ${spring.cloud.client.ipAddress}:${server.port}
+                         client:
+                           service-url:
+                             defaultzone: http://localhost:8888/eureka/
+                             om.wcy
